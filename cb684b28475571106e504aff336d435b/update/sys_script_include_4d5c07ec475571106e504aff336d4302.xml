@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1025229_test_v_0.GetEmailAddress</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description>Script Include to return an email address.  The calling client-side script passes a sys_id for a User table record.</description>
+        <name>GetEmailAddress</name>
+        <script><![CDATA[var GetEmailAddress = Class.create();
+// Extend the global.AbstractAjaxProcessor class
+GetEmailAddress.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+    // Define the getEmail function.  
+    // Create a GlideRecord for the User table.
+    // Use the sysparm_userID passed from the client side to retrieve a record from the User table.
+    // Return the email address for the requested record
+    getEmail: function() {
+        //var user = this.getParameter('sysparm_userId');
+        var details = {};
+        var userRecord = new GlideRecord("sys_user");
+        userRecord.get(this.getParameter('sysparm_userID'));
+        details.email = userRecord.email.toString();
+        details.mobile_phone = userRecord.mobile_phone.toString();
+
+        return JSON.stringify(details);
+        //return userRecord.email + '';
+        //return userRecord.mobile_phone + '';
+    },
+    get_data: function() {
+        var name = this.getParameter('sysparm_userID');
+        var userRecord = new GlideRecord("cmdb_ci");
+        var details = {};
+        userRecord.get(name.toString());
+        details.serial = userRecord.serial_number.toString();
+        details.manufacturer = userRecord.manufacturer.toString();
+        details.company = userRecord.company.toString();
+        return JSON.stringify(details);
+
+    },
+    alert_info: function() {
+        var results = {};
+        var x = this.getParameter('sysparm_x');
+        gs.info(x);
+        results.message = 'Eamil is Changed!!';
+        return JSON.stringify(results);
+    },
+	glideDateTime: function(){
+		var gDT = this.getParameter('sysparm_gdt');
+		var data = {};
+		var gdt = new GlideDateTime(gDT);
+		data['dayOfMonth'] = gdt.getDayOfMonthLocalTime().toString();
+		data['dayOfWeek'] = gdt.getDayOfWeekLocalTime().toString();
+		data['date'] = gdt.getDate().toString();
+		data['time'] = gdt.getLocalTime().toString();
+		data['weekOfYear'] = gdt.getWeekOfYearLocalTime().toString();
+		data['year'] = gdt.getYearLocalTime().toString();
+		
+		return JSON.stringify(data);
+	},
+	
+// 	addDaysToDate: function(startDate, numberOfDays) {
+// 	//var dt = this.getParameter('sysparm_date');
+//     var startDateObj = new GlideDateTime(startDate);
+//     startDateObj.addDaysUTC(numberOfDays);
+// 	return startDateObj;
+//     //return startDateObj.getDisplayValue();
+//   },
+    type: 'GetEmailAddress'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-09-12 15:46:26</sys_created_on>
+        <sys_id>4d5c07ec475571106e504aff336d4302</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>GetEmailAddress</sys_name>
+        <sys_package display_value="Test Validation" source="x_1025229_test_v_0">cb684b28475571106e504aff336d435b</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Test Validation">cb684b28475571106e504aff336d435b</sys_scope>
+        <sys_update_name>sys_script_include_4d5c07ec475571106e504aff336d4302</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-09-14 16:39:55</sys_updated_on>
+    </sys_script_include>
+</record_update>

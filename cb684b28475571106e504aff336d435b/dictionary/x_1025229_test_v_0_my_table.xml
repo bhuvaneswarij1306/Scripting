@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="b92943a8475571106e504aff336d43e1" label="My Table " max_length="40" name="x_1025229_test_v_0_my_table" type="collection">
+        <element label="Company" max_length="32" name="company" reference="core_company" type="reference"/>
+        <element label="Date" max_length="40" name="date" type="glide_date"/>
+        <element label="Date and Time" max_length="40" name="date_and_time" type="glide_date_time"/>
+        <element label="Day" max_length="40" name="day" type="string"/>
+        <element label="dayOfMonth" max_length="40" name="dayofmonth" type="string"/>
+        <element label="dayofweek" max_length="40" name="dayofweek" type="string"/>
+        <element label="daysInMonth" max_length="40" name="daysinmonth" type="string"/>
+        <element label="Manufacturer" max_length="32" name="manufacturer" reference="core_company" type="reference"/>
+        <element label="Name of CI" max_length="32" name="name_of_ci" reference="cmdb_ci" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="numberOfDays" max_length="40" name="numberofdays" type="integer"/>
+        <element label="Requested For" max_length="32" name="requested_for" reference="sys_user" type="reference"/>
+        <element label="Requested For Email" max_length="40" name="requested_for_email" type="string"/>
+        <element label="Requested For Number" max_length="40" name="requested_for_number" type="string"/>
+        <element label="resultDate" max_length="40" name="resultdate" type="glide_date"/>
+        <element display="true" label="Serial" max_length="40" name="serial" type="string"/>
+        <element label="startDate" max_length="40" name="startdate" type="glide_date"/>
+        <element label="weekOfYear" max_length="40" name="weekofyear" type="string"/>
+        <element label="year" max_length="40" name="year" type="string"/>
+        <index name="index">
+            <element name="company"/>
+        </index>
+        <index name="index2">
+            <element name="manufacturer"/>
+        </index>
+        <index name="index3">
+            <element name="name_of_ci"/>
+        </index>
+        <index name="index4">
+            <element name="requested_for"/>
+        </index>
+    </element>
+</database>

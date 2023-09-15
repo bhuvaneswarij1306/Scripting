@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1025229_test_v_0.AddDaysCalculator</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>AddDaysCalculator</name>
+        <script><![CDATA[var AddDaysCalculator = Class.create();
+AddDaysCalculator.prototype = {
+  initialize: function() {
+  },
+  
+  // Function to add days to a given date
+  addDaysToDate: function() {
+	var startDate = this.getParameter('sysparm_startDate');
+	var numberOfDays = this.getParameter('sysparm_numberOfDays');
+	var startDateObj = new GlideDateTime(startDate);  
+    startDateObj.addDaysUTC(numberOfDays);
+    return startDateObj.getDisplayValue();
+  },
+
+  type: 'AddDaysCalculator'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-09-14 16:40:37</sys_created_on>
+        <sys_id>703ca5d147d9b5106e504aff336d431f</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>AddDaysCalculator</sys_name>
+        <sys_package display_value="Test Validation" source="x_1025229_test_v_0">cb684b28475571106e504aff336d435b</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Test Validation">cb684b28475571106e504aff336d435b</sys_scope>
+        <sys_update_name>sys_script_include_703ca5d147d9b5106e504aff336d431f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-09-15 05:09:37</sys_updated_on>
+    </sys_script_include>
+</record_update>

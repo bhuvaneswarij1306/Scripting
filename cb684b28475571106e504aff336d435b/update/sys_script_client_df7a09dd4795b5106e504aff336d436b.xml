@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>date_and_time</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>On Change Of DateTime</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+    var gdt = newValue;
+    var ga = new GlideAjax('GetEmailAddress');
+    ga.addParam('sysparm_name', 'glideDateTime');
+    ga.addParam('sysparm_gdt', gdt);
+    ga.getXML(callback);
+
+	
+    function callback(response) {
+        var answer = JSON.parse(response.responseXML.documentElement.getAttribute("answer"));
+        g_form.setValue('weekofyear', answer.weekOfYear);
+        g_form.setValue('time', answer.time);
+        g_form.setValue('date', answer.date);
+        g_form.setValue('dayofmonth', answer.dayOfMonth);
+        g_form.setValue('dayofweek', answer.dayOfWeek);
+        g_form.setValue('year', answer.year);
+    }
+
+    //Type appropriate comment here, and begin script below
+
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-09-14 14:24:16</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>df7a09dd4795b5106e504aff336d436b</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>On Change Of DateTime</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Test Validation" source="x_1025229_test_v_0">cb684b28475571106e504aff336d435b</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Test Validation">cb684b28475571106e504aff336d435b</sys_scope>
+        <sys_update_name>sys_script_client_df7a09dd4795b5106e504aff336d436b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-09-14 14:25:50</sys_updated_on>
+        <table>x_1025229_test_v_0_my_table</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

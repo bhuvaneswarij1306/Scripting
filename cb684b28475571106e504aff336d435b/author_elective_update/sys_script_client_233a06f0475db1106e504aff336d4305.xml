@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>requested_for_email</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>ValidateEmail</name>
+        <order/>
+        <script><![CDATA[function onCellEdit(sysIDs, table, oldValues, newValue, callback) {
+  var saveAndClose = true;
+ //Type appropriate comment here, and begin script below
+ 
+	var getEmailAddr = new GlideAjax('validate');
+    // Specify the getEmail method
+    getEmailAddr.addParam('sysparm_name','validateEmailAddress');
+	// Pass the Requested for sys_id
+    getEmailAddr.addParam('sysparm_email', g_form.getValue('requested_for_email'));
+    // Send the request to the server
+    getEmailAddr.getXML(populateEmailField);
+alert('hello');
+
+    // When the response is back from the server
+    function populateEmailField(response){
+        // Extract the email address from the response, clear any value from the email field, 
+        // set new value in the email field
+		alert('inside');
+        var emailFromScriptInclude = response.responseXML.documentElement.getAttribute("answer");
+        if(emailFromScriptInclude == false){
+			alert('Please provide valid email address');
+		}
+		//g_form.clearValue('requested_for_email');
+        //g_form.setValue('requested_for_email',emailFromScriptInclude);
+    }
+   //Type appropriate comment here, and begin script below
+   
+ callback(saveAndClose); 
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-09-13 05:40:02</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>233a06f0475db1106e504aff336d4305</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>ValidateEmail</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Test Validation" source="x_1025229_test_v_0">cb684b28475571106e504aff336d435b</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Test Validation">cb684b28475571106e504aff336d435b</sys_scope>
+        <sys_update_name>sys_script_client_233a06f0475db1106e504aff336d4305</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-09-13 05:57:33</sys_updated_on>
+        <table>x_1025229_test_v_0_my_table</table>
+        <type>onCellEdit</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Test Validation">cb684b28475571106e504aff336d435b</application>
+        <file_path/>
+        <instance_id>f4b0afb0dbf92950dc3fc597059619ab</instance_id>
+        <instance_name>dev167757</instance_name>
+        <name>sys_script_client_233a06f0475db1106e504aff336d4305</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;requested_for_email&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;ValidateEmail&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onCellEdit(sysIDs, table, oldValues, newValue, callback) {
+  var saveAndClose = true;
+ //Type appropriate comment here, and begin script below
+ 
+	var getEmailAddr = new GlideAjax('validate');
+    // Specify the getEmail method
+    getEmailAddr.addParam('sysparm_name','validateEmailAddress');
+	// Pass the Requested for sys_id
+    getEmailAddr.addParam('sysparm_email', g_form.getValue('requested_for_email'));
+    // Send the request to the server
+    getEmailAddr.getXML(populateEmailField);
+alert('hello');
+
+    // When the response is back from the server
+    function populateEmailField(response){
+        // Extract the email address from the response, clear any value from the email field, 
+        // set new value in the email field
+		alert('inside');
+        var emailFromScriptInclude = response.responseXML.documentElement.getAttribute("answer");
+        if(emailFromScriptInclude == false){
+			alert('Please provide valid email address');
+		}
+		//g_form.clearValue('requested_for_email');
+        //g_form.setValue('requested_for_email',emailFromScriptInclude);
+    }
+   //Type appropriate comment here, and begin script below
+   
+ callback(saveAndClose); 
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-09-13 05:40:02&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;233a06f0475db1106e504aff336d4305&lt;/sys_id&gt;&lt;sys_mod_count&gt;4&lt;/sys_mod_count&gt;&lt;sys_name&gt;ValidateEmail&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Test Validation" source="x_1025229_test_v_0"&gt;cb684b28475571106e504aff336d435b&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Test Validation"&gt;cb684b28475571106e504aff336d435b&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_233a06f0475db1106e504aff336d4305&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-09-13 05:57:33&lt;/sys_updated_on&gt;&lt;table&gt;x_1025229_test_v_0_my_table&lt;/table&gt;&lt;type&gt;onCellEdit&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>662063765</payload_hash>
+        <record_name>ValidateEmail</record_name>
+        <reverted_from/>
+        <source>c3684b28475571106e504aff336d435e</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-09-13 05:57:33</sys_created_on>
+        <sys_id>0e8f0af8479db1106e504aff336d43a7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18a8d1dc8800000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-09-13 05:57:33</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>c28f0af8539db110d23870900aeec0a7</update_guid>
+        <update_guid_history>c28f0af8539db110d23870900aeec0a7:662063765,50dd0274ec9db110e666be333e9c1cf7:-1450103480,b05d8eb4829db110af0726fe25dc55ab:1299675974,1debc2f0059db1107e14934a3c5e7a08:-1763211741,198bce70079db110a625dfacc29fc562:-1111350893</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-09-13 13:10:13</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>1d4e34cff4d447739f29de85b99464f1</sys_id>
+        <sys_metadata>233a06f0475db1106e504aff336d4305</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ValidateEmail</sys_name>
+        <sys_package display_value="Test Validation" source="x_1025229_test_v_0">cb684b28475571106e504aff336d435b</sys_package>
+        <sys_parent display_value="My Table ">b92943a8475571106e504aff336d43e1</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Test Validation">cb684b28475571106e504aff336d435b</sys_scope>
+        <sys_scope_delete display_value="">0f25d2001516493284a1b6e55375e024</sys_scope_delete>
+        <sys_update_name>sys_script_client_233a06f0475db1106e504aff336d4305</sys_update_name>
+        <sys_update_version display_value="sys_script_client_233a06f0475db1106e504aff336d4305">0e8f0af8479db1106e504aff336d43a7</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-09-13 13:10:13</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

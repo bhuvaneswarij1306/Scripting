@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="INSERT_OR_UPDATE">
+        <operation>read</operation>
+        <source_scope display_value="Test Validation">cb684b28475571106e504aff336d435b</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-09-13 04:09:13</sys_created_on>
+        <sys_id>47b6bdf447d9b1106e504aff336d436f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sys_user</sys_name>
+        <sys_package display_value="Test Validation" source="x_1025229_test_v_0">cb684b28475571106e504aff336d435b</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Test Validation">cb684b28475571106e504aff336d435b</sys_scope>
+        <sys_update_name>sys_scope_privilege_47b6bdf447d9b1106e504aff336d436f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-09-13 04:09:13</sys_updated_on>
+        <target_name>sys_user</target_name>
+        <target_scope display_value="Global">global</target_scope>
+        <target_type>sys_db_object</target_type>
+    </sys_scope_privilege>
+</record_update>
